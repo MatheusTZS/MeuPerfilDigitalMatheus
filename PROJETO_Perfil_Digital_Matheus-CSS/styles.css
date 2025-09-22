@@ -1,0 +1,103 @@
+root {
+    --primary-bg-color: #ff0000;
+    --primary-text-color: #0400e8;
+    --font-size-base: 16px;
+    --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --spacing-base: 1rem;
+}
+
+/* Define box-sizing para incluir padding e border no tamanho total dos elementos */
+* {
+    box-sizing: border-box;
+}
+
+/* Estilos básicos para o corpo da página */
+body {
+    margin: 0;
+    background-color: var(--primary-bg-color);
+    background-image: url('tela.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    color: var(--primary-text-color);
+    text-align: center;
+    line-height: 1.5; /* Melhora a legibilidade do texto */
+}
+
+/* Estilos para as principais seções da página com fundo translúcido para contraste */
+header, main, footer {
+    padding: var(--spacing-base);
+    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco translúcido */
+    margin: var(--spacing-base);
+    border-radius: 8px; /* Bordas arredondadas */
+    max-width: 800px; /* Limita largura máxima */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza horizontalmente */
+}
+
+/* Ajuste de margens para títulos para espaçamento consistente */
+h1, h2, h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+/* Estilo para listas não ordenadas */
+ul {
+    list-style-type: disc; /* Marcadores tradicionais */
+    padding-left: 1.5rem; /* Espaço para os marcadores */
+    text-align: left; /* Alinha o texto à esquerda para melhor leitura */
+    color: var(--primary-text-color);
+}
+
+/* Estilo para a figura dentro da seção conquistas */
+.conquistas figure {
+    margin: 1rem auto 0; /* Espaçamento superior e centralização */
+    max-width: 120px;
+}
+
+/* Ajusta tamanho e bordas da imagem */
+.conquistas img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Estilo para legenda da imagem */
+.conquistas figcaption {
+    font-size: 0.9rem;
+    color: var(--primary-text-color);
+    margin-top: 0.3rem;
+}
+
+/* Estilização dos links no rodapé */
+footer a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    font-weight: 600; /* Negrito para destaque */
+}
+
+/* Efeito hover e foco para melhorar usabilidade dos links */
+footer a:hover,
+footer a:focus {
+    text-decoration: underline;
+}
+
+/* Ajuste de margens para parágrafos */
+p {
+    margin-top: 0;
+    margin-bottom: var(--spacing-base);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px; /* Fonte menor em dispositivos móveis */
+    }
+
+    header, main, footer {
+        margin: var(--spacing-base) 1rem;
+        padding: 0.5rem; /* Reduz padding para economizar espaço */
+    }
+}
