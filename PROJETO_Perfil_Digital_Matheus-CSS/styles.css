@@ -6,16 +6,13 @@ root {
     --spacing-base: 1rem;
 }
 
-/* Define box-sizing para incluir padding e border no tamanho total dos elementos */
-* {
-    box-sizing: border-box;
-}
+
 
 /* Estilos básicos para o corpo da página */
 body {
     margin: 0;
     background-color: var(--primary-bg-color);
-    background-image: url('tela.jpg');
+    background-image: url(carro.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -41,6 +38,7 @@ header, main, footer {
 h1, h2, h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
+    color: rgb(132, 0, 255);
 }
 
 /* Estilo para listas não ordenadas */
