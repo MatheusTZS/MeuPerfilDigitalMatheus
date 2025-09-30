@@ -38,7 +38,7 @@ header, main, footer {
 h1, h2, h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: rgb(132, 0, 255);
+    color: purple;
 }
 
 /* Estilo para listas não ordenadas */
@@ -47,6 +47,7 @@ ul {
     padding-left: 1.5rem; /* Espaço para os marcadores */
     text-align: left; /* Alinha o texto à esquerda para melhor leitura */
     color: var(--primary-text-color);
+    color: darkslateblue;
 }
 
 /* Estilo para a figura dentro da seção conquistas */
@@ -97,5 +98,16 @@ p {
     header, main, footer {
         margin: var(--spacing-base) 1rem;
         padding: 0.5rem; /* Reduz padding para economizar espaço */
+    }
+}
+footer{
+    color: darkorchid;
+    font-size: 14px;
+
+}
+section{
+    p { 
+        color:darkblue;
+
     }
 }
