@@ -1,4 +1,4 @@
-root {
+:root {
     --primary-bg-color: #ff0000;
     --primary-text-color: #0400e8;
     --font-size-base: 16px;
@@ -6,13 +6,29 @@ root {
     --spacing-base: 1rem;
 }
 
+/* Animação para fade-in do body */
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
+/* Animação para deslizar o header de cima */
+@keyframes slideDownHeader {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 /* Estilos básicos para o corpo da página */
 body {
     margin: 0;
     background-color: var(--primary-bg-color);
-    background-image: url(Design\ sem\ nome.png); /* Imagem de fundo */
+    background-image: url('Design sem nome.png'); /* Imagem de fundo */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -21,6 +37,7 @@ body {
     color: var(--primary-text-color);
     text-align: center;
     line-height: 1.5; /* Melhora a legibilidade do texto */
+    animation: fadeInBody 1.2s ease-in; /* Aplica animação de fade-in */
 }
 
 /* Estilos para as principais seções da página com fundo translúcido para contraste */
@@ -32,6 +49,11 @@ header, main, footer {
     max-width: 800px; /* Limita largura máxima */
     margin-left: auto;
     margin-right: auto; /* Centraliza horizontalmente */
+}
+
+/* Animação específica para o header */
+header {
+    animation: slideDownHeader 1s ease;
 }
 
 /* Ajuste de margens para títulos para espaçamento consistente */
@@ -46,7 +68,6 @@ ul {
     list-style-type: disc; /* Marcadores tradicionais */
     padding-left: 1.5rem; /* Espaço para os marcadores */
     text-align: left; /* Alinha o texto à esquerda para melhor leitura */
-    color: var(--primary-text-color);
     color: darkslateblue;
 }
 
@@ -100,14 +121,14 @@ p {
         padding: 0.5rem; /* Reduz padding para economizar espaço */
     }
 }
-footer{
+
+/* Estilo extra para o rodapé */
+footer {
     color: darkorchid;
     font-size: 14px;
-
 }
-section{
-    p { 
-        color:darkblue;
 
-    }
+/* Estilo para parágrafos dentro de section */
+section p {
+    color: darkblue;
 }
