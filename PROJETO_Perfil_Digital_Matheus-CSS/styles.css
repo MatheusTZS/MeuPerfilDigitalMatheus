@@ -106,8 +106,10 @@ footer a:focus {
 
 /* Ajuste de margens para parágrafos */
 p {
+    color: #0400e8;
     margin-top: 0;
     margin-bottom: var(--spacing-base);
+    
 }
 
 /* Responsividade para telas menores */
@@ -130,5 +132,5 @@ footer {
 
 /* Estilo para parágrafos dentro de section */
 section p {
-    color: darkblue;
+    color: rgb(0, 0, 255);
 }
