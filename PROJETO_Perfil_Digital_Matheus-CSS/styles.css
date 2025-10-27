@@ -1,6 +1,6 @@
 :root {
-    --primary-bg-color: #ff0000;
-    --primary-text-color: #0400e8;
+    --primary-bg-color: #00064e;
+    --primary-text-color: #02008c;
     --font-size-base: 16px;
     --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --spacing-base: 1rem;
@@ -28,7 +28,7 @@
 body {
     margin: 0;
     background-color: var(--primary-bg-color);
-    background-image: url('Design sem nome.png'); /* Imagem de fundo */
+    background-image: url('nfuvgnc1odia1.png'); /* Imagem de fundo */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -60,7 +60,7 @@ header {
 h1, h2, h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: purple;
+    color: rgb(0, 0, 0);
 }
 
 /* Estilo para listas não ordenadas */
@@ -68,7 +68,7 @@ ul {
     list-style-type: disc; /* Marcadores tradicionais */
     padding-left: 1.5rem; /* Espaço para os marcadores */
     text-align: left; /* Alinha o texto à esquerda para melhor leitura */
-    color: darkslateblue;
+    color: rgb(0, 0, 0);
 }
 
 /* Estilo para a figura dentro da seção conquistas */
@@ -106,7 +106,7 @@ footer a:focus {
 
 /* Ajuste de margens para parágrafos */
 p {
-    color: #0400e8;
+    color: #03009e;
     margin-top: 0;
     margin-bottom: var(--spacing-base);
     
@@ -126,11 +126,11 @@ p {
 
 /* Estilo extra para o rodapé */
 footer {
-    color: darkorchid;
+    color: rgb(0, 0, 0);
     font-size: 14px;
 }
 
 /* Estilo para parágrafos dentro de section */
 section p {
-    color: rgb(0, 0, 255);
+    color: rgb(0, 0, 163);
 }
