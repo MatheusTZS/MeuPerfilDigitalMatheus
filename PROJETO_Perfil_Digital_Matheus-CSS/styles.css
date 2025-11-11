@@ -1,34 +1,44 @@
 :root {
-    --primary-bg-color: #00064e;
-    --primary-text-color: #02008c;
+    --primary-bg-color: #0015ff;
+    --primary-text-color: #0400ff;
     --font-size-base: 16px;
     --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     --spacing-base: 1rem;
+    /* Tokens de animação (fáceis de ajustar) */
+    --anim-fast: 200ms;
+    --anim-medium: 420ms;
+    --anim-ease: cubic-bezier(.2,.9,.2,1);
+        /* Novas cores e tokens para visual mais agradável */
+        --accent: #ff6b6b; /* destaque quente */
+        --card-bg: rgba(255,255,255,0.94);
+        --glass: rgba(255,255,255,0.6);
+        --radius: 12px;
+        --shadow-1: 0 8px 24px rgba(2,6,23,0.12);
 }
 
 /* Animação para fade-in do body */
 @keyframes fadeInBody {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(6px) scale(.999); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* Animação para deslizar o header de cima */
 @keyframes slideDownHeader {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { transform: translateY(-20px) scale(.997); opacity: 0; }
+    60% { transform: translateY(6px) scale(1.002); }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 /* Estilos básicos para o corpo da página */
 body {
     margin: 0;
     background-color: var(--primary-bg-color);
-    background-image: url('nfuvgnc1odia1.png'); /* Imagem de fundo */
+    background-image: url('star-vs-the-forces-of-evil-1920-x-1080-background-hetdl2lksb1x2z9i.jpg'); /* Imagem de fundo */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -36,8 +46,14 @@ body {
     font-size: var(--font-size-base);
     color: var(--primary-text-color);
     text-align: center;
-    line-height: 1.5; /* Melhora a legibilidade do texto */
-    animation: fadeInBody 1.2s ease-in; /* Aplica animação de fade-in */
+    line-height: 1.6; /* Melhora a legibilidade do texto */
+    animation: fadeInBody var(--anim-medium) var(--anim-ease);
+    will-change: opacity, transform;
+}
+
+/* Respeita preferência por reduzir movimento */
+@media (prefers-reduced-motion: reduce) {
+    body, header, .conquistas img { animation: none !important; transition: none !important; }
 }
 
 /* Estilos para as principais seções da página com fundo translúcido para contraste */
@@ -53,15 +69,24 @@ header, main, footer {
 
 /* Animação específica para o header */
 header {
-    animation: slideDownHeader 1s ease;
+    animation: slideDownHeader var(--anim-medium) var(--anim-ease);
+    animation-fill-mode: both;
+    will-change: transform, opacity;
 }
 
 /* Ajuste de margens para títulos para espaçamento consistente */
 h1, h2, h3 {
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: rgb(0, 0, 0);
+    color: var(--primary-text-color);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-rendering: optimizeLegibility;
 }
+
+h1 { font-size: 2.25rem; margin-bottom: 0.25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.1rem; }
 
 /* Estilo para listas não ordenadas */
 ul {
@@ -70,6 +95,9 @@ ul {
     text-align: left; /* Alinha o texto à esquerda para melhor leitura */
     color: rgb(0, 0, 0);
 }
+
+/* Customizar marcadores da lista */
+ul li::marker { color: var(--accent); font-weight: 700; }
 
 /* Estilo para a figura dentro da seção conquistas */
 .conquistas figure {
@@ -81,7 +109,10 @@ ul {
 .conquistas img {
     width: 100px;
     height: 100px;
+    object-fit: cover;
     border-radius: 8px; /* Bordas arredondadas */
+    animation: popIn var(--anim-fast) var(--anim-ease) both;
+        box-shadow: 0 8px 18px rgba(2,6,23,0.12);
 }
 
 /* Estilo para legenda da imagem */
@@ -90,6 +121,27 @@ ul {
     color: var(--primary-text-color);
     margin-top: 0.3rem;
 }
+
+    /* Card utility para seções internas */
+    .card { background: var(--card-bg); padding: 1rem; border-radius: var(--radius); box-shadow: var(--shadow-1); }
+
+    /* Botão estilizado reutilizável */
+    .btn {
+        display: inline-block;
+        background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 90%, black 10%));
+        color: #fff;
+        padding: 0.5rem 0.9rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        transition: transform var(--anim-fast) var(--anim-ease), box-shadow var(--anim-fast) var(--anim-ease);
+    }
+    .btn:hover, .btn:focus { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,0.16); }
+
+    /* Pequeno destaque para listas, parágrafos e links */
+    p { color: var(--muted-text-color); margin-top: 0; margin-bottom: var(--spacing-base); }
+    a { color: color-mix(in srgb, var(--accent) 70%, var(--primary-text-color) 30%); }
 
 /* Estilização dos links no rodapé */
 footer a {
@@ -104,13 +156,14 @@ footer a:focus {
     text-decoration: underline;
 }
 
-/* Ajuste de margens para parágrafos */
-p {
-    color: #03009e;
-    margin-top: 0;
-    margin-bottom: var(--spacing-base);
-    
-}
+/* foco visível moderno */
+footer a:focus-visible { outline: 3px solid rgba(2,0,140,0.16); outline-offset: 3px; border-radius: 4px; }
+
+/* transições suaves para interações */
+a { transition: color var(--anim-fast) var(--anim-ease); }
+
+/* Ajuste de margens para parágrafos (mantido por compatibilidade) */
+/* As margens e cor são definidas na regra consolidada acima. */
 
 /* Responsividade para telas menores */
 @media (max-width: 600px) {
@@ -132,5 +185,5 @@ footer {
 
 /* Estilo para parágrafos dentro de section */
 section p {
-    color: rgb(0, 0, 163);
-}
+    color: rgb(0, 0, 255);
+}   
